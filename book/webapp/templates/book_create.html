@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+        <form action="/book/add/" method="post">
+        {% csrf_token %}
+            <h2>Добавить новую запись</h2>
+            {% include 'book_form.html' with button_text='Сохранить' %}
+        </form>
+{% endblock content %}

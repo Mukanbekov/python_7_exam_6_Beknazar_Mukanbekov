@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div style="margin-top: 20px; margin-bottom: 20px">
+        <li><a class="navbar-brand" href="book/add">
+        <img src= width="30" height="30" class="fa fa-plus-square" alt="">
+            Добавить</a></li>
+    </div>
+
+
+{% for book in book_list %}
+    <div class="price_table">
+     <div class="column_1">
+         <ul>
+             <li class="header_row_1 align_center">
+                 <div class="pack-title">{{ book.name }}</div>
+             </li>
+             <li class="header_row_2 align_center">
+                 <div class="price"><textarea readonly id="one" style="background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0)">{{ book.text }}</textarea></div>
+             </li>
+             <li class="row_style_1 align_center"><span>{{ book.email }}</span></li>
+             <li class="row_style_footer_2"><a href="{% url 'book_update' book.id %}" class="btn btn-success">
+             <img src= width="30" height="20" class="fa fa-scissors" alt="">
+                 Редактировать</a></li>
+             <li class="row_style_footer_2"><a href="{% url 'book_delete' book.id %}" class="btn btn-success">
+             <img src= width="30" height="20" class="fa fa-bitbucket" alt="">
+                 Удалить</a></li>
+         </ul>
+     </div><!--end column-->
+    </div>
+{% endfor %}
+{% endblock content %}
